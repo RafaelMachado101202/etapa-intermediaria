@@ -3,6 +3,7 @@ v2.0.0 (Web & API Edition)
 
 🌿 EcoPonto Inteligente🔗 
 Acesse a aplicação online: https://github.com/RafaelMachado101202/etapa-intermediaria
+Publicação da aplicação: https://rafaelmachado101202.github.io/etapa-intermediaria/
 Sistema de incentivo ao descarte consciente com gamificação, agora totalmente web e integrado com serviços de localização.
 
  Sobre o Projeto
