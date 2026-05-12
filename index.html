@@ -219,38 +219,40 @@
         return null;
     }
 
-    // ATUALIZE SUA FUNÇÃO DE REGISTRO PARA ISSO:
     async function registrarDescarte() {
-        const select = document.getElementById('select-material');
-        const peso = parseFloat(document.getElementById('input-peso').value);
-        const fator = parseFloat(select.options[select.selectedIndex].getAttribute('data-pts'));
-        const material = select.value;
-        
-        // Chamamos a busca do CEP para pegar a localização atualizada
-        const local = document.getElementById('localizacao-info').innerText;
+    const select = document.getElementById('select-material');
+    const peso = parseFloat(document.getElementById('input-peso').value);
+    const fator = parseFloat(select.options[select.selectedIndex].getAttribute('data-pts'));
+    const material = select.value;
+    
+    // Captura o texto que a API do CEP escreveu no ecrã
+    const localInfo = document.getElementById('localizacao-info').innerText;
+    
+    // Se o texto estiver vazio ou for o padrão, define como "Não informado"
+    const localFinal = (localInfo && localInfo.includes("📍")) ? localInfo : "Não informado";
 
-        if (isNaN(peso) || peso <= 0) {
-            alert("Por favor, insira um peso válido.");
-            return;
-        }
+    if (isNaN(peso) || peso <= 0) {
+        alert("Por favor, insira um peso válido.");
+        return;
+    }
 
-        const pontosGanhos = peso * fator;
-        dados.total_pontos += pontosGanhos;
+    const pontosGanhos = peso * fator;
+    dados.total_pontos += pontosGanhos;
 
-        const novoRegistro = {
-            data: new Date().toLocaleDateString('pt-BR'),
-            material: material,
-            peso: peso.toFixed(1) + "kg",
-            pontos: pontosGanhos.toFixed(1),
-            local: local.startsWith('📍') ? local : "Não informado" // Adiciona local ao histórico
-        };
+    const novoRegistro = {
+        data: new Date().toLocaleDateString('pt-BR'),
+        material: material,
+        peso: peso.toFixed(1) + "kg",
+        pontos: pontosGanhos.toFixed(1),
+        local: localFinal // Aqui garantimos que não seja undefined
+    };
 
-        dados.historico.unshift(novoRegistro);
-        if (dados.historico.length > 5) dados.historico.pop();
+    dados.historico.unshift(novoRegistro);
+    if (dados.historico.length > 5) dados.historico.pop();
 
-        salvarDados();
-        atualizarInterface();
-        alert(`Sucesso! +${pontosGanhos.toFixed(1)} pontos.`);
+    salvarDados();
+    atualizarInterface();
+    alert(`Sucesso! +${pontosGanhos.toFixed(1)} pontos.`);
     }
 
     function registrarDescarte() {
