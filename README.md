@@ -2,7 +2,7 @@
 v2.0.0 (Web & API Edition)
 
 🌿 EcoPonto Inteligente🔗 
-Acesse a aplicação online: https://seu-usuario.github.io/nome-do-repositorio/
+Acesse a aplicação online: https://github.com/RafaelMachado101202/etapa-intermediaria
 Sistema de incentivo ao descarte consciente com gamificação, agora totalmente web e integrado com serviços de localização.
 
  Sobre o Projeto
@@ -36,7 +36,9 @@ Pontuação    Nível
 1000+       🌎 Guardião do Planeta
 
  Como Rodar o Projeto Localmente
-Clone este repositório:Bashgit clone https://github.com/seu-usuario/nome-do-repositorio.git
+Clone este repositório:
+Bash
+git clone https://github.com/RafaelMachado101202/etapa-intermediaria.git
 Navegue até a pasta do projeto.
 Abra o arquivo index.html em qualquer navegador moderno.
 
